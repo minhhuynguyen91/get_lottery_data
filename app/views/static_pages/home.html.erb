@@ -1,2 +1,27 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<h1>Welcome to Vietlott fetched page </h1>
+
+<br>
+<br>
+<%= form_tag fetch_task_path, :method => 'post' do %>
+   <%= submit_tag "Get Lottery Result" %>
+<% end %>
+
+<br>
+
+<table class="table table-sm">
+    <thead>
+      <tr>
+      <th>No</th>
+      <th>Lottery date</th>
+      <th>Lottery result</th>
+      </tr>
+    </thead>
+    <%# <%= render 'static_pages/lottery' , lottery: @lotteries %>
+    <% @lotteries.each do |lottery| %>
+    <tr>
+      <td> <%= @lottery_size - lottery.id %> </td>
+      <td> <%= lottery.result_date %> </td>
+      <td> <%= lottery.result_no %>  </td>
+    </tr>
+    <% end %>
+</table>
