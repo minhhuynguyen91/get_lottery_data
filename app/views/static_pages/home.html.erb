@@ -2,11 +2,15 @@
 
 <br>
 <br>
-<%= form_tag fetch_task_path, :method => 'post' do %>
-   <%= submit_tag "Get Lottery Result" %>
+
+<%= form_tag fetch_task_path, :method => 'post', :id => "form_id" do %>
+   <%= submit_tag "Get Lottery Result",   :name => "fetch_data" %>
 <% end %>
 
-<br>
+<%= form_tag fetch_task_path, :method => 'post', :id => "form_id" do %>
+  <%= submit_tag "Get Statistic Result", :name => "get_statistic" %>
+<% end %>
+
 
 <div class="digg_pagination">
   <%= will_paginate @lotteries %>
@@ -22,8 +26,7 @@
       </tr>
     </thead>
     <%# <%= render 'static_pages/lottery' , lottery: @lotteries %>
-    <% @lotteries.each do |lottery| %>
-    <tr>
+    <% @lotteries.each do |lottery| %>    <tr>
       <td> <%= @lottery_size - lottery.id %> </td>
       <td> <%= lottery.result_date %> </td>
       <td> <%= lottery.result_no %>  </td>

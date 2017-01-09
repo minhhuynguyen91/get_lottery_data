@@ -76,5 +76,33 @@ class Fetch_Data
     end
       
   end
+  
+  def get_statistic
+    hash_result = {}
+    lotteries = Lottery.all
+    lotteries.each do |lottery|
+      lottery.result_no.split(" ").each do |number|
+        if hash_result.key?(number)
+          hash_result["#{number}"] += 1
+        else
+          hash_result.merge!("#{number}" => 1)
+        end
+      end
+    end
+    
+    #puts hash_result
+    
+    hash_result.each do |number, counter|
+      if LotteryNumber.find_by_lottery_no(number).nil?
+        LotteryNumber.create(:lottery_no => number, :counter => counter)
+      else
+        lottery_no = LotteryNumber.find_by_lottery_no(number)
+        lottery_no.counter = counter
+        lottery_no.save
+      end
+    end
+      
+    
+  end
     
 end

@@ -1,0 +1,2 @@
+class LotteryNumber < ApplicationRecord
+end
