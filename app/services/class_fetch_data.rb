@@ -97,8 +97,10 @@ class Fetch_Data
         LotteryNumber.create(:lottery_no => number, :counter => counter)
       else
         lottery_no = LotteryNumber.find_by_lottery_no(number)
-        lottery_no.counter = counter
-        lottery_no.save
+        if lottery_no.counter != counter
+          lottery_no.counter = counter
+          lottery_no.save
+        end
       end
     end
       

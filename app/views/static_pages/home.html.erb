@@ -3,33 +3,64 @@
 <br>
 <br>
 
-<%= form_tag fetch_task_path, :method => 'post', :id => "form_id" do %>
+<%= form_tag fetch_task_path, :method => 'post', :id => "form_result" do %>
    <%= submit_tag "Get Lottery Result",   :name => "fetch_data" %>
 <% end %>
 
-<%= form_tag fetch_task_path, :method => 'post', :id => "form_id" do %>
+<%= form_tag fetch_task_path, :method => 'post', :id => "form_stats" do %>
   <%= submit_tag "Get Statistic Result", :name => "get_statistic" %>
 <% end %>
 
+<br>
+<br>
+<p>
+  <%= link_to 'Show lottery result table', home_path(:type => "lottery_result"), :remote => true ,  :class => "btn btn-info" %> 
+  <%= link_to 'Show lottery statistic table', home_path(:type => "lottery_number"), :remote => true,  :class => "btn btn-info" %>
+</p>
 
-<div class="digg_pagination">
-  <%= will_paginate @lotteries %>
+<div id="table_result">
+  <div class="digg_pagination">
+    <%= will_paginate @lotteries %>
+  </div>
+  
+  <br>
+  <table class="table table-sm">
+      <thead>
+        <tr>
+        <th>No</th>
+        <th>Lottery date</th>
+        <th>Lottery result</th>
+        </tr>
+      </thead>
+      <%# <%= render 'static_pages/lottery' , lottery: @lotteries %>
+      <% @lotteries.each do |lottery| %>    
+      <tr>
+        <td> <%= @lottery_size - lottery.id %> </td>
+        <td> <%= lottery.result_date %> </td>
+        <td> <%= lottery.result_no %>  </td>
+      </tr>
+      <% end %>
+  </table>
 </div>
 
 <br>
-<table class="table table-sm">
-    <thead>
+
+<div id="table_statistic"> 
+  <table class="table table-sm">
+      <thead>
+        <tr>
+        <th>No</th>
+        <th>Lottery Number</th>
+        <th>Appearance </th>
+        </tr>
+      </thead>
+      
+      <% @lotteries_number.each_with_index do |lot_no, index| %>    
       <tr>
-      <th>No</th>
-      <th>Lottery date</th>
-      <th>Lottery result</th>
+        <td> <%= index + 1 %> </td>
+        <td> <%= lot_no.lottery_no %> </td>
+        <td> <%= lot_no.counter %>  </td>
       </tr>
-    </thead>
-    <%# <%= render 'static_pages/lottery' , lottery: @lotteries %>
-    <% @lotteries.each do |lottery| %>    <tr>
-      <td> <%= @lottery_size - lottery.id %> </td>
-      <td> <%= lottery.result_date %> </td>
-      <td> <%= lottery.result_no %>  </td>
-    </tr>
-    <% end %>
-</table>
+      <% end %>
+  </table>
+</div>
