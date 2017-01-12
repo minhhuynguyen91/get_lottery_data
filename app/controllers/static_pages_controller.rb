@@ -5,6 +5,8 @@ class StaticPagesController < ApplicationController
     
     
     @lotteries_number = LotteryNumber.all.order('counter DESC')
+    @lottery_chart = LotteryNumber.all.order('lottery_no ASC')
+    
     respond_to do |format|
       format.html
       format.js
@@ -40,7 +42,7 @@ class StaticPagesController < ApplicationController
       end
     elsif params[:get_statistic]
       flash[:success] = "Data is successfully calculated"
-    
+     
       fetch_method.get_statistic
     end
     

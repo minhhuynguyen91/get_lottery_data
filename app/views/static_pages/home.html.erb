@@ -14,8 +14,9 @@
 <br>
 <br>
 <p>
-  <%= link_to 'Show lottery result table', home_path(:type => "lottery_result"), :remote => true ,  :class => "btn btn-info" %> 
-  <%= link_to 'Show lottery statistic table', home_path(:type => "lottery_number"), :remote => true,  :class => "btn btn-info" %>
+  <%= link_to 'Show result table', home_path(:type => "lottery_result"), :remote => true ,  :class => "btn btn-info" %> 
+  <%= link_to 'Show statistic table', home_path(:type => "lottery_number"), :remote => true,  :class => "btn btn-info" %>
+  <%= link_to 'Show chart', home_path(:type => "lottery_chart"), :remote => true,  :class => "btn btn-info" %>
 </p>
 
 <div id="table_result">
@@ -64,3 +65,6 @@
       <% end %>
   </table>
 </div>
+
+
+<%= line_chart @lottery_chart.pluck(:lottery_no, :counter), id:"chart_lot",  legend:"bottom" ,  xtitle: "Lottery Number", ytitle: "Appearance" %>

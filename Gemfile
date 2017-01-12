@@ -26,7 +26,9 @@ gem 'jbuilder', '~> 2.5'
 # Split fetched data into multiple pages
 gem 'will_paginate', '~> 3.1.0'
 
-
+gem 'chartkick'
+gem 'groupdate'
+gem 'active_median'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
