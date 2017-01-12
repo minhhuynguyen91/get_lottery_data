@@ -5,7 +5,7 @@
 
 ## DEMO
 
-![demo](https://github.com/minhhuynguyen91/get_lottery_data/demo.gif)
+![demo](https://github.com/minhhuynguyen91/get_lottery_data/blob/master/demo.gif)
 
 ## NOTE
 
