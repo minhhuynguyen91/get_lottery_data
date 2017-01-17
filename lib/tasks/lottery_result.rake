@@ -1,4 +1,4 @@
-desc "Fetch product prices"
+desc "Fetch lottery result"
 task :fetch_lottery => :environment do
 
     require 'nokogiri'
