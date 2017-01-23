@@ -17,4 +17,6 @@
 //= require turbolinks
 //= require Chart.bundle
 //= require chartkick
+//= require underscore
+//= require gmaps/google
 //= require_tree .

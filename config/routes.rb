@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :estates
   get 'front_pages/home'
 
   get '/home' => 'static_pages#home'
