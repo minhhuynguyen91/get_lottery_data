@@ -2,17 +2,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Url:</strong>
-  <%= @estate.url %>
+  <strong>Estate resource: </strong>
+  <%= link_to "Here", @estate.url, :target => "_blank" %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Contact name: </strong>
   <%= @estate.name %>
 </p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>Contact number:</strong>
   <%= @estate.number %>
 </p>
 
@@ -27,14 +27,10 @@
 </p>
 
 <p>
-  <strong>Latitude:</strong>
-  <%= @estate.latitude %>
+  <strong>Location :</strong>
+  <%= @estate.latitude %>, <%= @estate.longitude %>
 </p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @estate.longitude %>
-</p>
 
 <p>
   <strong>Size:</strong>
@@ -55,9 +51,10 @@
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 
 <br>
-<%= link_to 'Show map', '#', :remote => true, :id => 'show_map'   %>
+<div style="display:none;" >
+  <%= link_to 'Show map', '#', :remote => true, :id => 'show_map'   %>
+</div>
 
-<br>
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
