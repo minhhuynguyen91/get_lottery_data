@@ -46,19 +46,15 @@ end
 
 task :sample_uri => :environment do 
   require 'open-uri'
+  require 'rest-client'
+  
   agent = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0"
   url = "http://batdongsan.com.vn/ban-nha-rieng-duong-nguyen-van-luong-1-phuong-16-3/go-vap-4ty-tret-lung-lau-doi-dien-lotte-mart-pr11180276"
   accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-  File.open('/home/ubuntu/test_file', 'w') do |file| 
-    open(url, "User-Agent" => agent, "Accept" => accept).each_line do |line|
-      file.write(line)
-      #if line.match("/rel=\"nofollow\"/")
-      #  puts line
-      #else
-      #  puts line
-      #end
-    end
-  end
+  #doc = Nokogiri::HTML(open(url, "User-Agent" => agent, "Accept" => accept))
+  page = Nokogiri::HTML(RestClient.get(url))
+  puts page.class
+  
   
 end
 
