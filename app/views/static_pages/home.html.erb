@@ -68,6 +68,6 @@
 </div>
 
 
-<%= line_chart @lottery_chart.pluck(:lottery_no, :counter), id:"chart_lot",  legend:"bottom", label: "Appearance Counter" ,  xtitle: "Lottery Number", ytitle: "Appearance" %>
+<%= line_chart @lottery_chart.pluck(:lottery_no, :counter), :colors => ["#fff", "#fff"], id:"chart_lot",  legend:"bottom", label: "Appearance Counter" ,  xtitle: "Lottery Number", ytitle: "Appearance" %>
 
 </div>

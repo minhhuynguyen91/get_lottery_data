@@ -1,7 +1,5 @@
 var show_type = "<%= j (params[:type]) %>"
 
-
-
 if (show_type == "lottery_result") {
     document.getElementById("table_result").style.display = 'inline';
     document.getElementById("table_statistic").style.display = 'none';
@@ -14,5 +12,4 @@ if (show_type == "lottery_result") {
     document.getElementById("table_result").style.display = 'none';
     document.getElementById("table_statistic").style.display = 'none';
     document.getElementById("chart_lot").style.display = 'block';
-    
 }

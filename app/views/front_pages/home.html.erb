@@ -1,6 +1,22 @@
-<div class="container">
-<p>
-    <%= link_to 'Get lottery', home_path %>
-    <%= link_to 'Get real estate', '#' %>
-</p>
+
+<div class="site-wrapper">
+
+  <div class="site-wrapper-inner">
+
+    <div class="cover-container">
+
+      <div class="masthead clearfix">
+        <div class="inner">
+        </div>
+      </div>
+
+      <div class="inner cover">
+        <h1 class="cover-heading" style="text-align:center;" >Welcome to fetched webpage </h1>
+          <p class="lead" style="text-align:center">
+            <%= link_to 'Get Viettlot', home_path, :class => "btn btn-lg btn-secondary" %>
+            <%= link_to 'Get Real Estate', estates_path, :class => "btn btn-lg btn-secondary" %>
+          </p>
+      </div>
+    </div>
+  </div>
 </div>
